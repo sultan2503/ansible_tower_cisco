@@ -1,5 +1,5 @@
 ---
-- name: show version and other user level commands
+- name: show ip info & ARP
   hosts: all
   gather_facts: false
   connection: local
