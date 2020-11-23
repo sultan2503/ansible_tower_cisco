@@ -1,0 +1,15 @@
+---
+- name: Configure OSPF
+  hosts: "{{ cisco_router }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
+  
+
+  tasks:
+    - name: enable ospf
+      ios_config:
+        authorize: yes
+        parents: router ospf 1
+        lines:
+          - network 0.0.0.0 255.255.255.255 area 0  
