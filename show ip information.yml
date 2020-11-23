@@ -1,12 +1,12 @@
 ---
-- name: Generate Cisco IOS OS Report
+- name: Show iinterface information
   hosts: "{{ cisco_router }}"
   connection: network_cli
   #port: 22
   gather_facts: no
 
   tasks:
-    - name: run multiple commands on remote nodes
+    - name: Command sh ip int br
       ios_command:
         authorize: yes
         commands:
