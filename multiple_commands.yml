@@ -17,5 +17,5 @@
       ios_command:
         authorize: yes
         commands:
-          - show flash:
+          - show arp
 
