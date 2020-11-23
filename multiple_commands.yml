@@ -1,0 +1,21 @@
+---
+- name: show version and other user level commands
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: run multiple commands on remote nodes
+      ios_command:
+        authorize: yes
+        commands:
+          - show ip int br
+
+
+  tasks1:
+    - name: run multiple commands on remote nodes
+      ios_command:
+        authorize: yes
+        commands:
+          - show flash:
+
