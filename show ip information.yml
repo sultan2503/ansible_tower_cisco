@@ -1,5 +1,5 @@
 ---
-- name: Show iinterface information
+- name: Show interface information
   hosts: "{{ cisco_router }}"
   connection: network_cli
   #port: 22
