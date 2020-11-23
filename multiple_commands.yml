@@ -10,12 +10,5 @@
         authorize: yes
         commands:
           - show ip int br
-
-
-  tasks:
-    - name: run multiple commands on remote nodes
-      ios_command:
-        authorize: yes
-        commands:
           - show arp
 
