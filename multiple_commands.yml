@@ -1,11 +1,12 @@
 ---
-- name: show ip info & ARP
-  hosts: all
-  gather_facts: false
-  connection: local
+- name: Show interface & ARP info
+  hosts: "{{ cisco_router }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
 
   tasks:
-    - name: run multiple commands on remote nodes
+    - name: Run multiple commands on remote nodes
       ios_command:
         authorize: yes
         commands:
