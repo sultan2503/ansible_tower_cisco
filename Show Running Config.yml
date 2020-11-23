@@ -11,5 +11,3 @@
         authorize: yes
         commands:
           - show run
-        wait_for:
-          - result[0] contains 'interface'
