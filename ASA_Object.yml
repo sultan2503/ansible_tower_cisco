@@ -1,5 +1,5 @@
 ---
-- name: Show interface information
+- name: Config Object
   hosts: "{{ cisco_asa }}"
   connection: network_cli
   #port: 22
@@ -9,5 +9,13 @@
     - name: Command sh ip int br
       asa_config:
         authorize: yes
-        commands:
-          - show version
+        lines:
+          - range 100.100.100.10 100.100.100.20
+        parents: ['object network public_ip']
+          
+      asa_config:
+        authorize: yes
+        lines:
+          - subnet 192.168.1.0 255.255.255.0
+          - nat (inside,outside) dynamic public_ip
+        parents: ['object network internal']          
