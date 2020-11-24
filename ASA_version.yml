@@ -1,0 +1,13 @@
+---
+- name: Show Version
+  hosts: "{{ cisco_asa }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
+
+  tasks:
+    - name: Command sh ip int br
+      asa_command:
+        authorize: yes
+        commands:
+          - show version
