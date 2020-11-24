@@ -4,10 +4,10 @@
   connection: network_cli
   #port: 22
   gather_facts: no
-
-  tasks:
-    - name: Command sh ip int br
-      asa_command:
-        authorize: yes
-        commands:
-          - show version
+  
+- cisco.asa.asa_config:
+    lines:
+    - network-object host 10.80.30.18
+    - network-object host 10.80.30.19
+    - network-object host 10.80.30.20
+    parents: [object-group network OG-MONITORED-SERVERS]
