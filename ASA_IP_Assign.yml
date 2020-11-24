@@ -5,6 +5,13 @@
   #port: 22
   gather_facts: no
 
-- asa_config:
-    lines: hostname {{ inventory_hostname }}
+  tasks:
+    - name: Command sh ip int br
+      asa_config:
+        authorize: yes
+        lines: hostname {{ inventory_hostname }}
 
+          
+          
+          
+          
