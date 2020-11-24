@@ -9,7 +9,7 @@
     - name: Command sh ip int br
       asa_config:
         authorize: yes
-        parents: ['object network public_ip']
+        parents: object network public_ip
         lines:
           - range 100.100.100.10 100.100.100.20
 
