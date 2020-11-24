@@ -6,9 +6,7 @@
   gather_facts: no
 
   tasks:
-    - name: Command sh ip int br
-      #asa_config:
-      asa_config:
+    - asa_config:
         lines:
           - network-object host 10.80.30.18
           - network-object host 10.80.30.19
