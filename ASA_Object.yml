@@ -10,5 +10,4 @@
       asa_config:
         authorize: yes
         lines:
-          - range 100.100.100.10 100.100.100.20
-        parents: ['object network public_ip']
+          - object network public_ip
