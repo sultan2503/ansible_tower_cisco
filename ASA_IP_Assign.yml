@@ -5,13 +5,10 @@
   #port: 22
   gather_facts: no
 
-  tasks:
-    - name: Command sh ip int br
-      asa_config:
-        authorize: yes
-        parents: interface GigabitEthernet0/6
-        lines:
-          - ip addr 10.0.0.1 255.255.255.0
-          - no shut
-          - nameif try
+- cisco.asa.asa_config:
+    lines:
+    - network-object host 10.80.30.18
+    - network-object host 10.80.30.19
+    - network-object host 10.80.30.20
+    parents: [object-group network OG-MONITORED-SERVERS]
 
