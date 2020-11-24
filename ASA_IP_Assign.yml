@@ -1,5 +1,5 @@
 ---
-- name: Config Object
+- name: IP_assign
   hosts: "{{ cisco_asa }}"
   connection: network_cli
   #port: 22
@@ -9,7 +9,9 @@
     - name: Command sh ip int br
       asa_config:
         authorize: yes
-        parents: object network public_ip
+        parents: interface GigabitEthernet0/6
         lines:
-          - range 100.100.100.10 100.100.100.20
+          - ip addr 10.0.0.1 255.255.255.0
+          - no shut
+          - nameif try
 
