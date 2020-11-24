@@ -6,7 +6,7 @@
   gather_facts: no
 
   tasks:
-    - cisco.asa.asa_config:
+    - asa_config:
         lines:
         - network-object host 10.80.30.18
         - network-object host 10.80.30.19
