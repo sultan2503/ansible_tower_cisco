@@ -6,9 +6,18 @@
   gather_facts: no
 
   tasks:
-    - asa_config:
-        lines:
-          - network-object host 10.80.30.18
-          - network-object host 10.80.30.19
-          - network-object host 10.80.30.20
-        parents: ['object-group network OG-MONITORED-SERVERS']
+    - name: configure network object-group
+      asa_og:
+        name: ansible_test_0
+        group_type: network-object
+        state: present
+        description: ansible_test object-group description
+        host_ip:
+          - 8.8.8.8
+          - 8.8.4.4
+        ip_mask:
+          - 10.0.0.0 255.255.255.0
+          - 192.168.0.0 255.255.0.0
+        group_object:
+          - awx_lon
+          - awx_ams
