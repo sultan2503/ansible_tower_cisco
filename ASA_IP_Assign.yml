@@ -7,13 +7,13 @@
 
   tasks:
     - name: hostname config
-      ios_system:
+      asa_config:
         authorize: yes
         hostname: "{{ inventory_hostname }}"
         lookup_enabled: 'no'
 
     - name: rtr-1 interface config
-      ios_config:
+      asa_config:
         authorize: yes
         lines:
           - description connection asa-1 inside
