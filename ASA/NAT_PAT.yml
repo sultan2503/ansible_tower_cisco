@@ -10,6 +10,7 @@
       asa_config:
         lines:
         parents: Interface GigabitEthernet0/2
+        lines:
           - description IP ADDRESS Assign from Ansible
           - ip address 10.0.255.254 255.255.255.0
           - nameif ansible
@@ -25,7 +26,7 @@
           
     - name: DNS configuration for name resolution
       asa_config:
-        lines:
+        parents:
           - domain-name cisco.com
           - dns domain-lookup outside
           - dns name-server 8.8.8.8
