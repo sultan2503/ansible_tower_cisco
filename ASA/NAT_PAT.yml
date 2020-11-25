@@ -21,7 +21,7 @@
         parents: object network inside
         lines:
           - subnet 192.168.1.0 255.255.255.0
-          - nat (inside,outside) dynamic interface
+          - nat (inside,ansible) dynamic interface
           
     - name: DNS configuration for name resolution
       asa_config:
