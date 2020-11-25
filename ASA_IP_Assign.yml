@@ -1,18 +1,15 @@
 ---
-- name: Show interface information
+- name: Assign IP addreaa
   hosts: "{{ cisco_asa }}"
   connection: network_cli
   #port: 22
   gather_facts: no
 
   tasks:
-    - name: configure network object-group
+    - name: Configuration IP G0/3
       asa_config:
         parents: Interface GigabitEthernet0/3
         lines:
           - description connection asa-1 inside
-          - ip address 10.0.255.254 255.255.255.0
-          - ip address 10.0.255.10 255.255.255.0 secondary
-          - ip address 10.0.255.11 255.255.255.0 secondary
-          - ip address 10.0.255.12 255.255.255.0 secondary
+          - ip address 172.16.1.10 255.255.255.0
           - no shutdown
