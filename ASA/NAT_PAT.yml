@@ -4,8 +4,6 @@
   connection: network_cli
   #port: 22
   gather_facts: no
-  authorize: yes
-  auth_pass: 
 
   tasks:
     - name: Configure IP on G0/2
