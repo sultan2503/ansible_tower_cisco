@@ -1,13 +1,12 @@
 ---
-- name: IP_assign
+- name: Show interface information
   hosts: "{{ cisco_asa }}"
   connection: network_cli
   #port: 22
   gather_facts: no
 
   tasks:
-    - name: interface config
-      authorize: yes
+    - name: configure network object-group
       asa_config:
         lines:
           - description connection asa-1 inside
