@@ -27,6 +27,6 @@
       asa_config:
         lines:
           - domain-name cisco.com
-          - dns domain-lookup outside
+          - dns domain-lookup inside
           - dns name-server 8.8.8.8
           - route inside 0 0 192.168.1.254
