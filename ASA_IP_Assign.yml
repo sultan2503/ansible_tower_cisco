@@ -4,7 +4,6 @@
   connection: network_cli
   #port: 22
   gather_facts: no
-  auth_pass: 
 
   tasks:
     - name: configure network object-group
