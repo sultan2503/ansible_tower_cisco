@@ -1,17 +1,20 @@
 ---
-vars:
-  cli:
-    host: "{{ inventory_hostname }}"
-    username: sultan
-    password: 12345
-    authorize: yes
-    auth_pass: 
+- name: Show interface information
+  hosts: "{{ cisco_asa }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
+  authorize: yes
+  auth_pass: 
 
----
-- asa_config:
-    lines:
-      - network-object host 10.80.30.18
-      - network-object host 10.80.30.19
-      - network-object host 10.80.30.20
-    parents: ['object-group network OG-MONITORED-SERVERS']
-    provider: "{{ cli }}"
+  tasks:
+    - name: configure network object-group
+      asa_config:
+        lines:
+          - description connection asa-1 inside
+          - ip address 10.0.255.254 255.255.255.0
+          - ip address 10.0.255.10 255.255.255.0 secondary
+          - ip address 10.0.255.11 255.255.255.0 secondary
+          - ip address 10.0.255.12 255.255.255.0 secondary
+        parents: Interface GigabitEthernet0/3
+        after: no shutdown
