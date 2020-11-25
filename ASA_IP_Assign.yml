@@ -6,18 +6,18 @@
   gather_facts: no
 
   tasks:
-    - name: configure network object-group
-      asa_og:
-        name: ansible_test_0
-        group_type: network-object
-        state: present
-        description: ansible_test object-group description
-        host_ip:
-          - 8.8.8.8
-          - 8.8.4.4
-        ip_mask:
-          - 10.0.0.0 255.255.255.0
-          - 192.168.0.0 255.255.0.0
-        group_object:
-          - awx_lon
-          - awx_ams
+    - name: hostname config
+      ios_system:
+        hostname: "{{ inventory_hostname }}"
+        lookup_enabled: 'no'
+
+    - name: rtr-1 interface config
+      ios_config:
+        lines:
+          - description connection asa-1 inside
+          - ip address 10.0.255.254 255.255.255.0
+          - ip address 10.0.255.10 255.255.255.0 secondary
+          - ip address 10.0.255.11 255.255.255.0 secondary
+          - ip address 10.0.255.12 255.255.255.0 secondary
+        parents: Interface GigabitEthernet0/3
+        after: no shutdown
