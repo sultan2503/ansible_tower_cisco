@@ -1,0 +1,34 @@
+---
+- name: Configure PAT
+  hosts: "{{ cisco_asa }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
+  authorize: yes
+  auth_pass: 
+
+  tasks:
+    - name: Configure IP on G0/2
+      asa_config:
+        lines:
+        parents: Interface GigabitEthernet0/2
+          - description IP ADDRESS Assign from Ansible
+          - ip address 10.0.255.254 255.255.255.0
+          - nameif ansible
+          - security-level 100
+          - no shutdown
+          
+    - name: Configure Object
+      asa_config:
+        lines:
+        parents: object network inside
+          - subnet 192.168.1.0 255.255.255.0
+          - nat (inside,outside) dynamic interface
+          
+    - name: DNS configuration for name resolution
+      asa_config:
+        lines:
+          - domain-name cisco.com
+          - dns domain-lookup outside
+          - dns name-server 8.8.8.8
+          - route inside 0 0 192.168.1.254
