@@ -8,11 +8,13 @@
   tasks:
     - name: hostname config
       ios_system:
+        authorize: yes
         hostname: "{{ inventory_hostname }}"
         lookup_enabled: 'no'
 
     - name: rtr-1 interface config
       ios_config:
+        authorize: yes
         lines:
           - description connection asa-1 inside
           - ip address 10.0.255.254 255.255.255.0
