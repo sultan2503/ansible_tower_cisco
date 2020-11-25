@@ -8,7 +8,6 @@
   tasks:
     - name: Configure IP on G0/2
       asa_config:
-        lines:
         parents: Interface GigabitEthernet0/2
         lines:
           - description IP ADDRESS Assign from Ansible
@@ -19,14 +18,14 @@
           
     - name: Configure Object
       asa_config:
-        lines:
         parents: object network inside
+        lines:
           - subnet 192.168.1.0 255.255.255.0
           - nat (inside,outside) dynamic interface
           
     - name: DNS configuration for name resolution
       asa_config:
-        parents:
+        lines:
           - domain-name cisco.com
           - dns domain-lookup outside
           - dns name-server 8.8.8.8
