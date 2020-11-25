@@ -8,11 +8,11 @@
   tasks:
     - name: configure network object-group
       asa_config:
+        parents: Interface GigabitEthernet0/3
         lines:
           - description connection asa-1 inside
           - ip address 10.0.255.254 255.255.255.0
           - ip address 10.0.255.10 255.255.255.0 secondary
           - ip address 10.0.255.11 255.255.255.0 secondary
           - ip address 10.0.255.12 255.255.255.0 secondary
-        parents: Interface GigabitEthernet0/3
-        after: no shutdown
+          - no shutdown
