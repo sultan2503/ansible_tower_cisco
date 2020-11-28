@@ -1,0 +1,27 @@
+---
+- name: Testing
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: run multiple commands on remote nodes
+      ios_command:
+        commands:
+          - sh ip protocols
+
+      register: print_output
+
+    - name: save output to a file
+      copy: content="{{ print_output.stdout[0] }}" dest="./output/{{ inventory_hostname }}.txt"
+      
+    
+    - name: run multiple commands on remote nodes
+      ios_config:
+        parents: router ospf 10
+        lines:
+          - network 172.31.1.0 0.0.0.255 are 0
+          
+    
+    - name: save output to a file
+      copy: content="{{ print_output.stdout[0] }}" dest="./output/{{ inventory_hostname }}_o.txt"
