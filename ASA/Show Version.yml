@@ -10,5 +10,5 @@
       asa_command:
         authorize: yes
         commands:
-          - show version
+          - show int ip br
           
