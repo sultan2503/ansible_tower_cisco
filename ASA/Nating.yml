@@ -36,5 +36,5 @@
         authorize: yes
         lines:
           - route outside 0 0 192.168.1.254
-          - access-group in_to_out globle
+          - access-group in_to_out global
           - hostname ASA1
