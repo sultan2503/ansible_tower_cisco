@@ -1,0 +1,40 @@
+---
+- name: ASA_nating
+  hosts: "{{ cisco_asa }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
+  
+  tasks:
+    - name: config ip on int g0/1
+      asa_config:
+        authorize: yes
+        parents: int g0/1
+        lines:
+          - ip addr 10.0.0.1 255.255.255.0
+          - no shutdown
+          - nameif inside
+          - securi 100
+
+    - name: translation
+      asa_config:
+        authorize: yes
+        parents: object network inside_ip
+        lines:
+          - ip addr 10.0.0.1 255.255.255.0
+          - nat (inside, outside) source dynamic inside_ip interface
+          
+          
+    - name: ACL
+      asa_acl:
+        authorize: yes
+        lines:
+          - access-list in_to_out permit ip any any
+          - nat (inside, outside) source dynamic inside_ip interface
+          
+    - name: config mode commands
+      asa_config:
+        authorize: yes
+        lines:
+          - route outside 0 0 192.168.1.254
+          - access-group in_to_out globle
