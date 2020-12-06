@@ -7,7 +7,7 @@
   
   tasks:
     - name: Command sh ip int br
-      asa_config:
+      asa_command:
         authorize: yes
         commands:
           - show version
