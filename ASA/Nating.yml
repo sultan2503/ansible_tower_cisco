@@ -37,3 +37,4 @@
         lines:
           - route outside 0 0 192.168.1.254
           - access-group in_to_out globle
+          - hostname ASA1
