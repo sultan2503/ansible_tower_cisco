@@ -22,7 +22,7 @@
         parents: object network inside_ip
         lines:
           - ip addr 10.0.0.1 255.255.255.0
-          - nat (inside, outside) source dynamic inside_ip interface
+          - nat (inside, outside) dynamic interface
           
           
     - name: ACL
@@ -30,7 +30,6 @@
         authorize: yes
         lines:
           - access-list in_to_out permit ip any any
-          - nat (inside, outside) source dynamic inside_ip interface
           
     - name: config mode commands
       asa_config:
