@@ -22,7 +22,7 @@
         parents: object network inside_ip
         lines:
           - subnet 10.0.0.0 255.255.255.0
-          - nat (inside, outside) dynamic interface
+          - nat (inside,outside) dynamic interface
           
           
     - name: ACL
