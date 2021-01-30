@@ -1,9 +1,6 @@
 # ansible_tower_cisco
 
 
-#--Linux Network Repository
-https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/
-
 #--Cent OS download
 http://mirrors.piconets.webwerks.in/centos-mirror/8.3.2011/isos/x86_64/
 
