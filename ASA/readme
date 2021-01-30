@@ -1,0 +1,5 @@
+ssh 192.168.1.0 255.255.255.0 mgmt 
+  aaa authentication ssh console LOCAL 
+  username ccna password ***** privilege 15 
+  aaa authentication ssh console LOCAL 
+  aaa authorization exec LOCAL auto-enable
