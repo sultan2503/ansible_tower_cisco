@@ -1,0 +1,15 @@
+---
+- name: Show Running Config 
+  hosts: "{{ cisco_router }}"
+  connection: network_cli
+  #port: 22
+  gather_facts: no
+
+  tasks:
+    - name: config
+      ios_config:
+        authorize: yes
+      lines:
+        - description test interface
+        - ip address 172.31.1.1 255.255.255.0
+      parents: interface loop 100
