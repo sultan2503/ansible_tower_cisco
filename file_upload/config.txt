@@ -2,3 +2,8 @@ int loop 200
 ip addr 200.200.200.200 255.255.255.0
 int loop 201
 ip addr 201.201.201.201 255.255.255.0
+
+router ospf 10
+network 192.168.1.0 0.0.0.255 area 0
+network 200.200.200.0 0.0.0.255 area 0
+network 201.201.201.0 0.0.0.255 area 0
