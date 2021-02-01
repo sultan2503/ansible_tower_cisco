@@ -6,10 +6,11 @@
   gather_facts: no
 
   tasks:
-    - name: config
+    - name: IP Address
       ios_config:
         authorize: yes
         lines:
           - description test interface
           - ip address 172.31.1.1 255.255.255.0
         parents: interface loop 100
+      
