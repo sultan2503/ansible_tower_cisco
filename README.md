@@ -14,4 +14,5 @@ https://computingforgeeks.com/install-and-configure-ansible-tower-on-centos-rhel
 https://docs.ansible.com/ansible-tower/latest/html/userguide/import_license.html?extIdCarryOver=true&sc_cid=701f2000001OH7EAAW
 
 #--Change RAM size to 1500 on this location
+------   
 ansible-tower-setup-3.6.4-1/roles/preflight/defaults/main.yml
